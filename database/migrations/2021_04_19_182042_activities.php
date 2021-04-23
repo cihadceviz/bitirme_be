@@ -14,10 +14,10 @@ class Activities extends Migration
     public function up()
     {
         Schema::create('activities', function (Blueprint $table){
-           $table->bigInteger('activity_id')->primary();
+           $table->bigInteger('activity_id');
            $table->bigInteger('user_id');
 
-           $table->foreign('user_id')->references('id')->on('users');
+
         });
 
     }

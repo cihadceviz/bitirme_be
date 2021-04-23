@@ -14,15 +14,16 @@ class ActivityDetail extends Migration
     public function up()
     {
         Schema::create('activityDetail', function (Blueprint $table){
-            $table->bigInteger('activity_id')->primary();
+            $table->bigIncrements('activity_id');
             $table->bigInteger('activity_status');
             $table->string('activity_name');
+            $table->bigInteger('activity_createdBy');
             $table->dateTime('activity_start_date');
             $table->dateTime('activity_end_date');
+            $table->json('activity_invited_user');
             $table->boolean('activity_view');
-            $table->string('activity_description');
+            $table->string('activity_description')->nullable();
 
-            $table->foreign('activity_id')->references('activity_id')->on('activities');
 
 
         });
